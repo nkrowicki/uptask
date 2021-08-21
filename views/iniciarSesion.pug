@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        include partials/header
+    body.login
+        .contenedor-formulario 
+            h1 Inicia sesion en Uptask
+
+            if error
+                p.alerta.error= error
+
+            form#formulario.caja.caja-login(method="POST" action="/iniciar-sesion")
+                .campo 
+                    label(for="email") Email: 
+                    input(type="email" name="email" placeholder="Tu email" value= email)
+                .campo
+                    label(for="password") Password: 
+                    input(type="password" name="password" placeholder="Tu password" value= password)
+                .campo.enviar
+                    input.boton(type="submit" value="Iniciar sesion")
+                .campo.acciones
+                    a(href="/crear-cuenta") Volver a crear cuenta
+                    a(href='/reestablecer') Olvidaste tu contraseña?
